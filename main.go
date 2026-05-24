@@ -2,7 +2,6 @@ package main
 
 import "fmt"
 
-// struct data jadwal (nad)
 type Jadwal struct {
 	Kode   string
 	Matkul string
@@ -12,17 +11,18 @@ type Jadwal struct {
 
 var dataJadwal []Jadwal
 
-// fungsi utama program (nad)
 func main() {
 
 	var pilih int
 
-	for pilih != 3 {
+	for pilih != 5 {
 
-		fmt.Println("===== JADWALKU =====")
+		fmt.Println("\n===== JADWALKU =====")
 		fmt.Println("1. Tambah Jadwal")
 		fmt.Println("2. Tampilkan Jadwal")
-		fmt.Println("3. Keluar")
+		fmt.Println("3. Ubah Jadwal")
+		fmt.Println("4. Hapus Jadwal")
+		fmt.Println("5. Keluar")
 		fmt.Print("Pilih menu: ")
 		fmt.Scanln(&pilih)
 
@@ -35,6 +35,12 @@ func main() {
 			tampilkanJadwal()
 
 		case 3:
+			ubahJadwal()
+
+		case 4:
+			hapusJadwal()
+
+		case 5:
 			fmt.Println("Program selesai")
 
 		default:
@@ -43,8 +49,7 @@ func main() {
 	}
 }
 
-// fungsi tambah jadwal (nad)
-func tambahJadwal() {
+func tambahJadwal() { //nambahd ata
 
 	var data Jadwal
 
@@ -65,8 +70,7 @@ func tambahJadwal() {
 	fmt.Println("Data berhasil ditambahkan")
 }
 
-// fungsi tampil jadwal (nad)
-func tampilkanJadwal() {
+func tampilkanJadwal() { //view
 
 	if len(dataJadwal) == 0 {
 
@@ -74,13 +78,61 @@ func tampilkanJadwal() {
 		return
 	}
 
-	// perulangan untuk menampilkan data (nad)
 	for i := 0; i < len(dataJadwal); i++ {
 
-		fmt.Println("---------------")
-		fmt.Println("Kode :", dataJadwal[i].Kode)
+		fmt.Println("\n----------------")
+		fmt.Println("Kode   :", dataJadwal[i].Kode)
 		fmt.Println("Matkul :", dataJadwal[i].Matkul)
-		fmt.Println("Dosen :", dataJadwal[i].Dosen)
-		fmt.Println("Hari :", dataJadwal[i].Hari)
+		fmt.Println("Dosen  :", dataJadwal[i].Dosen)
+		fmt.Println("Hari   :", dataJadwal[i].Hari)
 	}
+}
+
+func ubahJadwal() { //edit data
+
+	var kode string
+
+	fmt.Print("Masukkan kode matkul yang ingin diubah : ")
+	fmt.Scanln(&kode)
+
+	for i := 0; i < len(dataJadwal); i++ { // buat cari data ngambil dari kode
+
+		if dataJadwal[i].Kode == kode {
+
+			fmt.Print("Nama Matkul Baru : ")
+			fmt.Scanln(&dataJadwal[i].Matkul)
+
+			fmt.Print("Nama Dosen Baru : ")
+			fmt.Scanln(&dataJadwal[i].Dosen)
+
+			fmt.Print("Hari Baru : ")
+			fmt.Scanln(&dataJadwal[i].Hari)
+
+			fmt.Println("Data berhasil diubah")
+			return
+		}
+	}
+
+	fmt.Println("Data tidak ditemukan")
+}
+
+func hapusJadwal() { //hapus data
+
+	var kode string
+
+	fmt.Print("Masukkan kode matkul yang ingin dihapus : ")
+	fmt.Scanln(&kode)
+
+	for i := 0; i < len(dataJadwal); i++ { // buat cek data
+
+		if dataJadwal[i].Kode == kode {
+
+			dataJadwal = append(dataJadwal[:i], dataJadwal[i+1:]...)
+
+			fmt.Println("Data berhasil dihapus")
+			return
+		}
+	}
+
+	fmt.Println("Data tidak ditemukan")
 }
