@@ -1,5 +1,4 @@
 package main
-
 import "fmt"
 
 type Jadwal struct {
@@ -11,7 +10,7 @@ type Jadwal struct {
 
 var dataJadwal []Jadwal
 
-func main() { //program utama
+func main() { 
 	var pilih int
 
 	for pilih != 5 {
@@ -25,7 +24,6 @@ func main() { //program utama
 		fmt.Scanln(&pilih)
 
 		switch pilih {
-
 		case 1:
 			tambahJadwal()
 
@@ -48,7 +46,6 @@ func main() { //program utama
 }
 
 func tambahJadwal() { //nambahd ata
-
 	var data Jadwal
 
 	fmt.Print("Kode Matkul : ")
@@ -69,7 +66,6 @@ func tambahJadwal() { //nambahd ata
 }
 
 func tampilkanJadwal() { //view
-
 	if len(dataJadwal) == 0 {
 
 		fmt.Println("Data kosong")
@@ -77,7 +73,6 @@ func tampilkanJadwal() { //view
 	}
 
 	for i := 0; i < len(dataJadwal); i++ {
-
 		fmt.Println("\n----------------")
 		fmt.Println("Kode   :", dataJadwal[i].Kode)
 		fmt.Println("Matkul :", dataJadwal[i].Matkul)
@@ -87,16 +82,13 @@ func tampilkanJadwal() { //view
 }
 
 func ubahJadwal() { //edit data
-
 	var kode string
 
 	fmt.Print("Masukkan kode matkul yang ingin diubah : ")
 	fmt.Scanln(&kode)
 
 	for i := 0; i < len(dataJadwal); i++ { // buat cari data ngambil dari kode
-
 		if dataJadwal[i].Kode == kode {
-
 			fmt.Print("Nama Matkul Baru : ")
 			fmt.Scanln(&dataJadwal[i].Matkul)
 
@@ -110,27 +102,23 @@ func ubahJadwal() { //edit data
 			return
 		}
 	}
-
 	fmt.Println("Data tidak ditemukan")
 }
 
 func hapusJadwal() { //hapus data
-
 	var kode string
-
 	fmt.Print("Masukkan kode matkul yang ingin dihapus : ")
 	fmt.Scanln(&kode)
 
 	for i := 0; i < len(dataJadwal); i++ { // buat cek data
-
 		if dataJadwal[i].Kode == kode {
-
 			dataJadwal = append(dataJadwal[:i], dataJadwal[i+1:]...)
-
 			fmt.Println("Data berhasil dihapus")
 			return
 		}
 	}
-
 	fmt.Println("Data tidak ditemukan")
 }
+
+
+//test git
