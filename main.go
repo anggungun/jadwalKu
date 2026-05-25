@@ -11,12 +11,10 @@ type Jadwal struct {
 
 var dataJadwal []Jadwal
 
-func main() {
-
+func main() { //program utama
 	var pilih int
 
 	for pilih != 5 {
-
 		fmt.Println("\n===== JADWALKU =====")
 		fmt.Println("1. Tambah Jadwal")
 		fmt.Println("2. Tampilkan Jadwal")
