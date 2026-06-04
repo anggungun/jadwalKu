@@ -6,8 +6,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 	"sort"
+	"strings"
 )
 
 type Jadwal struct {
@@ -294,12 +294,28 @@ func insertionSort() {
 		dataJadwal[j+1] = key
 	}
 
-	func statistik() {
+	fmt.Println("Data berhasil diurutkan menggunakan Insertion Sort")
+	tampilkanJadwal()
+}
 
-	total := len(dataJadwal)
+func statistik() {
+
+	var totalJam int
+
+	// menghitung total jam kuliah per minggu
+	for i := 0; i < len(dataJadwal); i++ {
+
+		var mulai int
+		var selesai int
+
+		fmt.Sscanf(dataJadwal[i].JamMulai, "%d", &mulai)
+		fmt.Sscanf(dataJadwal[i].JamSelesai, "%d", &selesai)
+
+		totalJam += selesai - mulai
+	}
 
 	fmt.Println("\n===== STATISTIK =====")
-	fmt.Println("Total Jadwal :", total)
+	fmt.Println("Total jam kuliah per minggu :", totalJam, "jam")
 
 	var hari string
 	var jumlah int
@@ -307,6 +323,7 @@ func insertionSort() {
 	fmt.Print("Masukkan hari : ")
 	fmt.Scanln(&hari)
 
+	// menghitung jumlah mata kuliah dalam satu hari
 	for i := 0; i < len(dataJadwal); i++ {
 
 		if strings.ToLower(dataJadwal[i].Hari) == strings.ToLower(hari) {
@@ -315,10 +332,7 @@ func insertionSort() {
 		}
 	}
 
-	fmt.Println("Jumlah jadwal pada", hari, ":", jumlah)
-}
-	fmt.Println("Data berhasil diurutkan menggunakan Insertion Sort")
-	tampilkanJadwal()
+	fmt.Println("Jumlah mata kuliah pada", hari, ":", jumlah)
 }
 
 //test git
