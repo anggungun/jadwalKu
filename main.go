@@ -1,7 +1,13 @@
 //kelompok 7 (anggun, nares, elsa)
 
 package main
-import "fmt"
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
 
 type Jadwal struct {
 	Kode   string
@@ -11,8 +17,9 @@ type Jadwal struct {
 }
 
 var dataJadwal []Jadwal
+var input = bufio.NewReader(os.Stdin)
 
-func main() { 
+func main() {
 	var pilih int
 
 	for pilih != 5 {
@@ -47,6 +54,13 @@ func main() {
 	}
 }
 
+func inputString() string { //biar bisa make spasi
+
+	text, _ := input.ReadString('\n')
+
+	return strings.TrimSpace(text)
+}
+
 func tambahJadwal() { //nambahd ata
 	var data Jadwal
 
@@ -54,10 +68,10 @@ func tambahJadwal() { //nambahd ata
 	fmt.Scanln(&data.Kode)
 
 	fmt.Print("Nama Matkul : ")
-	fmt.Scanln(&data.Matkul)
+	data.Matkul = inputString()
 
 	fmt.Print("Nama Dosen : ")
-	fmt.Scanln(&data.Dosen)
+	data.Dosen = inputString()
 
 	fmt.Print("Hari : ")
 	fmt.Scanln(&data.Hari)
@@ -92,10 +106,10 @@ func ubahJadwal() { //edit data
 	for i := 0; i < len(dataJadwal); i++ { // buat cari data ngambil dari kode
 		if dataJadwal[i].Kode == kode {
 			fmt.Print("Nama Matkul Baru : ")
-			fmt.Scanln(&dataJadwal[i].Matkul)
+			dataJadwal[i].Matkul = inputString()
 
 			fmt.Print("Nama Dosen Baru : ")
-			fmt.Scanln(&dataJadwal[i].Dosen)
+			dataJadwal[i].Dosen = inputString()
 
 			fmt.Print("Hari Baru : ")
 			fmt.Scanln(&dataJadwal[i].Hari)
@@ -121,6 +135,5 @@ func hapusJadwal() { //hapus data
 	}
 	fmt.Println("Data tidak ditemukan")
 }
-
 
 //test git
