@@ -25,14 +25,18 @@ var input = bufio.NewReader(os.Stdin)
 func main() {
 	var pilih int
 
-	for pilih != 6 {
+	for pilih != 10 {
 		fmt.Println("\n===== JADWALKU =====")
 		fmt.Println("1. Tambah Jadwal")
 		fmt.Println("2. Tampilkan Jadwal")
 		fmt.Println("3. Ubah Jadwal")
 		fmt.Println("4. Hapus Jadwal")
-		fmt.Println("5. Cari Jadwal")
-		fmt.Println("6. Keluar")
+		fmt.Println("5. Sequential Search")
+		fmt.Println("6. Binary Search")
+		fmt.Println("7. Selection Sort")
+		fmt.Println("8. Insertion Sort")
+		fmt.Println("9. Statistik")
+		fmt.Println("10. Keluar")
 		fmt.Print("Pilih menu: ")
 		fmt.Scanln(&pilih)
 
@@ -53,6 +57,18 @@ func main() {
 			sequentialSearch()
 
 		case 6:
+			binarySearch()
+
+		case 7:
+			selectionSort()
+
+		case 8:
+			insertionSort()
+
+		case 9:
+			statistik()
+
+		case 10:
 			fmt.Println("Program selesai")
 
 		default:
