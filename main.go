@@ -203,4 +203,51 @@ func sequentialSearch() {
 	fmt.Println("Data tidak ditemukan")
 }
 
+func selectionSort() {
+
+	n := len(dataJadwal)
+
+	for i := 0; i < n-1; i++ {
+
+		min := i
+
+		for j := i + 1; j < n; j++ {
+
+			if dataJadwal[j].JamMulai < dataJadwal[min].JamMulai {
+
+				min = j
+			}
+		}
+
+		dataJadwal[i], dataJadwal[min] = dataJadwal[min], dataJadwal[i]
+	}
+
+	fmt.Println("Data berhasil diurutkan menggunakan Selection Sort")
+	tampilkanJadwal()
+}
+
+func insertionSort() {
+
+	n := len(dataJadwal)
+
+	for i := 1; i < n; i++ {
+
+		key := dataJadwal[i]
+
+		j := i - 1
+
+		for j >= 0 && dataJadwal[j].JamMulai > key.JamMulai {
+
+			dataJadwal[j+1] = dataJadwal[j]
+
+			j--
+		}
+
+		dataJadwal[j+1] = key
+	}
+
+	fmt.Println("Data berhasil diurutkan menggunakan Insertion Sort")
+	tampilkanJadwal()
+}
+
 //test git
