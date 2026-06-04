@@ -1,4 +1,5 @@
 package main
+
 import "fmt"
 
 type Jadwal struct {
@@ -10,7 +11,7 @@ type Jadwal struct {
 
 var dataJadwal []Jadwal
 
-func main() { 
+func main() {
 	var pilih int
 
 	for pilih != 5 {
@@ -120,5 +121,5 @@ func hapusJadwal() { //hapus data
 	fmt.Println("Data tidak ditemukan")
 }
 
-
+//test git
 //test git
