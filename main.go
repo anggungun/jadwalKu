@@ -10,10 +10,13 @@ import (
 )
 
 type Jadwal struct {
-	Kode   string
-	Matkul string
-	Dosen  string
-	Hari   string
+	Kode       string
+	Matkul     string
+	Dosen      string
+	Hari       string
+	JamMulai   string
+	JamSelesai string
+	Ruangan    string
 }
 
 var dataJadwal []Jadwal
@@ -79,6 +82,14 @@ func tambahJadwal() { //nambahd ata
 
 	fmt.Print("Hari : ")
 	fmt.Scanln(&data.Hari)
+	fmt.Print("Jam Mulai : ")
+	fmt.Scanln(&data.JamMulai)
+
+	fmt.Print("Jam Selesai : ")
+	fmt.Scanln(&data.JamSelesai)
+
+	fmt.Print("Ruangan : ")
+	fmt.Scanln(&data.Ruangan)
 
 	dataJadwal = append(dataJadwal, data)
 
@@ -98,6 +109,9 @@ func tampilkanJadwal() { //view
 		fmt.Println("Matkul :", dataJadwal[i].Matkul)
 		fmt.Println("Dosen  :", dataJadwal[i].Dosen)
 		fmt.Println("Hari   :", dataJadwal[i].Hari)
+		fmt.Println("Jam Mulai   :", dataJadwal[i].JamMulai)
+		fmt.Println("Jam Selesai :", dataJadwal[i].JamSelesai)
+		fmt.Println("Ruangan     :", dataJadwal[i].Ruangan)
 	}
 }
 
@@ -117,6 +131,15 @@ func ubahJadwal() { //edit data
 
 			fmt.Print("Hari Baru : ")
 			fmt.Scanln(&dataJadwal[i].Hari)
+
+			fmt.Print("Jam Mulai Baru : ")
+			fmt.Scanln(&dataJadwal[i].JamMulai)
+
+			fmt.Print("Jam Selesai Baru : ")
+			fmt.Scanln(&dataJadwal[i].JamSelesai)
+
+			fmt.Print("Ruangan Baru : ")
+			fmt.Scanln(&dataJadwal[i].Ruangan)
 
 			fmt.Println("Data berhasil diubah")
 			return
