@@ -294,6 +294,29 @@ func insertionSort() {
 		dataJadwal[j+1] = key
 	}
 
+	func statistik() {
+
+	total := len(dataJadwal)
+
+	fmt.Println("\n===== STATISTIK =====")
+	fmt.Println("Total Jadwal :", total)
+
+	var hari string
+	var jumlah int
+
+	fmt.Print("Masukkan hari : ")
+	fmt.Scanln(&hari)
+
+	for i := 0; i < len(dataJadwal); i++ {
+
+		if strings.ToLower(dataJadwal[i].Hari) == strings.ToLower(hari) {
+
+			jumlah++
+		}
+	}
+
+	fmt.Println("Jumlah jadwal pada", hari, ":", jumlah)
+}
 	fmt.Println("Data berhasil diurutkan menggunakan Insertion Sort")
 	tampilkanJadwal()
 }
