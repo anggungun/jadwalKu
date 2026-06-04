@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"sort"
 )
 
 type Jadwal struct {
@@ -197,6 +198,53 @@ func sequentialSearch() {
 			fmt.Println("Hari :", dataJadwal[i].Hari)
 
 			return
+		}
+	}
+
+	fmt.Println("Data tidak ditemukan")
+}
+
+func binarySearch() {
+
+	if len(dataJadwal) == 0 {
+
+		fmt.Println("Data kosong")
+		return
+	}
+
+	sort.Slice(dataJadwal, func(i, j int) bool {
+
+		return dataJadwal[i].Matkul < dataJadwal[j].Matkul
+	})
+
+	var keyword string
+
+	fmt.Print("Masukkan nama matkul : ")
+	keyword = inputString()
+
+	left := 0
+	right := len(dataJadwal) - 1
+
+	for left <= right {
+
+		mid := (left + right) / 2
+
+		if strings.ToLower(dataJadwal[mid].Matkul) == strings.ToLower(keyword) {
+
+			fmt.Println("\nData ditemukan")
+			fmt.Println("Kode :", dataJadwal[mid].Kode)
+			fmt.Println("Matkul :", dataJadwal[mid].Matkul)
+			fmt.Println("Dosen :", dataJadwal[mid].Dosen)
+
+			return
+
+		} else if strings.ToLower(dataJadwal[mid].Matkul) < strings.ToLower(keyword) {
+
+			left = mid + 1
+
+		} else {
+
+			right = mid - 1
 		}
 	}
 
