@@ -85,6 +85,7 @@ func inputString() string { //biar bisa make spasi
 	return strings.TrimSpace(text)
 }
 
+//ITRHOH ANGGUN PAMUNGKAS (109082500117) membuat CRUD
 func tambahJadwal() { //nambahd ata
 	var data Jadwal
 
@@ -103,7 +104,7 @@ func tambahJadwal() { //nambahd ata
 	fmt.Scanln(&data.JamMulai)
 
 	fmt.Print("Jam Selesai : ")
-	fmt.Scanln(&data.JamSelesai)
+	fmt.Scanln(&data.JamSelesai) //ELSA DWI RIZQIYANTI (109082500090) menambahkan jam mulai, jam selesai, ruangan
 
 	fmt.Print("Ruangan : ")
 	fmt.Scanln(&data.Ruangan)
@@ -126,8 +127,8 @@ func tampilkanJadwal() { //view
 		fmt.Println("Matkul :", dataJadwal[i].Matkul)
 		fmt.Println("Dosen  :", dataJadwal[i].Dosen)
 		fmt.Println("Hari   :", dataJadwal[i].Hari)
-		fmt.Println("Jam Mulai   :", dataJadwal[i].JamMulai)
-		fmt.Println("Jam Selesai :", dataJadwal[i].JamSelesai)
+		fmt.Println("Jam Mulai   :", dataJadwal[i].JamMulai) 
+		fmt.Println("Jam Selesai :", dataJadwal[i].JamSelesai) //ELSA DWI RIZQIYANTI (109082500090) menambahkan jam mulai, jam selesai, ruangan
 		fmt.Println("Ruangan     :", dataJadwal[i].Ruangan)
 	}
 }
@@ -153,7 +154,7 @@ func ubahJadwal() { //edit data
 			fmt.Scanln(&dataJadwal[i].JamMulai)
 
 			fmt.Print("Jam Selesai Baru : ")
-			fmt.Scanln(&dataJadwal[i].JamSelesai)
+			fmt.Scanln(&dataJadwal[i].JamSelesai) //ELSA DWI RIZQIYANTI (109082500090) menambahkan jam mulai, jam selesai, ruangan
 
 			fmt.Print("Ruangan Baru : ")
 			fmt.Scanln(&dataJadwal[i].Ruangan)
@@ -180,6 +181,7 @@ func hapusJadwal() { //hapus data
 	fmt.Println("Data tidak ditemukan")
 }
 
+//BENING PUTRI NARESWARI S (109082500211) menambahkan Sequentil Search
 func sequentialSearch() {
 
 	var keyword string
@@ -204,6 +206,7 @@ func sequentialSearch() {
 	fmt.Println("Data tidak ditemukan")
 }
 
+//ITRHOH ANGGUN PAMUNGKAS (109082500117) menambahkan binary search
 func binarySearch() {
 
 	if len(dataJadwal) == 0 {
@@ -251,6 +254,7 @@ func binarySearch() {
 	fmt.Println("Data tidak ditemukan")
 }
 
+//BENING PUTRI NARESWARI S (109082500211) menambahkan Selection Sort dan Insertion Sort
 func selectionSort() {
 
 	n := len(dataJadwal)
@@ -298,6 +302,7 @@ func insertionSort() {
 	tampilkanJadwal()
 }
 
+//ELSA DWI RIZQIYANTI (109082500090) menambahkan statistik
 func statistik() {
 
 	var totalJam int
