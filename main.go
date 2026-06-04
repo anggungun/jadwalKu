@@ -1,3 +1,5 @@
+//kelompok 7 (anggun, nares, elsa)
+
 package main
 import "fmt"
 
