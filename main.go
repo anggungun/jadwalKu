@@ -22,13 +22,14 @@ var input = bufio.NewReader(os.Stdin)
 func main() {
 	var pilih int
 
-	for pilih != 5 {
+	for pilih != 6 {
 		fmt.Println("\n===== JADWALKU =====")
 		fmt.Println("1. Tambah Jadwal")
 		fmt.Println("2. Tampilkan Jadwal")
 		fmt.Println("3. Ubah Jadwal")
 		fmt.Println("4. Hapus Jadwal")
-		fmt.Println("5. Keluar")
+		fmt.Println("5. Cari Jadwal")
+		fmt.Println("6. Keluar")
 		fmt.Print("Pilih menu: ")
 		fmt.Scanln(&pilih)
 
@@ -46,6 +47,9 @@ func main() {
 			hapusJadwal()
 
 		case 5:
+			sequentialSearch()
+
+		case 6:
 			fmt.Println("Program selesai")
 
 		default:
@@ -133,6 +137,30 @@ func hapusJadwal() { //hapus data
 			return
 		}
 	}
+	fmt.Println("Data tidak ditemukan")
+}
+
+func sequentialSearch() {
+
+	var keyword string
+
+	fmt.Print("Masukkan nama matkul : ")
+	keyword = inputString()
+
+	for i := 0; i < len(dataJadwal); i++ {
+
+		if strings.ToLower(dataJadwal[i].Matkul) == strings.ToLower(keyword) {
+
+			fmt.Println("\nData ditemukan")
+			fmt.Println("Kode :", dataJadwal[i].Kode)
+			fmt.Println("Matkul :", dataJadwal[i].Matkul)
+			fmt.Println("Dosen :", dataJadwal[i].Dosen)
+			fmt.Println("Hari :", dataJadwal[i].Hari)
+
+			return
+		}
+	}
+
 	fmt.Println("Data tidak ditemukan")
 }
 
